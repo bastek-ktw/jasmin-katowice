@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Kosmetyczny Jasmin | Katowice</title>
+    <meta name="description" content="Salon Kosmetyczny Jasmin w Katowicach. Podologia, manicure, pielęgnacja. Profesjonalne zabiegi w eleganckim wnętrzu. Umów wizytę!">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ZMIENNE KOLORYSTYCZNE (Możesz tu zmienić kolory) --- */
+        :root {
+            --primary-color: #d4af37; /* Złoty/Beżowy akcent */
+            --bg-color: #fcfbf9;      /* Jasne tło (kremowa biel) */
+            --text-color: #333333;    /* Ciemny tekst */
+            --light-text: #666666;    /* Jaśniejszy tekst */
+            --accent-pink: #c78898;   /* Pudrowy róż (nawiązanie do logo) */
+            --white: #ffffff;
+        }
+
+        /* --- RESET I BAZA --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        
+        /* --- NAGŁÓWEK I NAWIGACJA --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo img { height: 60px; width: auto; } /* Dostosuj wysokość logo */
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+        
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HERO SECTION (START) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efekt paralaksy na desktopie */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+            max-width: 100%;
+            padding: 0 20px;
+        }
+        .hero-content h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-color);
+        }
+        .btn:hover { background-color: transparent; color: var(--white); }
+
+        /* --- O NAS --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--text-color); }
+        .about-text .highlight { color: var(--accent-pink); }
+        .about-img { flex: 1; }
+        .about-img img { width: 100%; border-radius: 5px; box-shadow: 10px 10px 0px var(--primary-color); }
+
+        /* --- OFERTA (CENNIK) --- */
+        .offer { background-color: var(--white); max-width: 100%; }
+        .offer-container { max-width: 1000px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-title span { display: block; width: 60px; height: 3px; background: var(--primary-color); margin: 0 auto; }
+
+        .price-category { margin-bottom: 60px; }
+        .price-category h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent-pink);
+            letter-spacing: 2px;
+        }
+
+        .price-list { width: 100%; border-collapse: collapse; }
+        .price-list tr { border-bottom: 1px solid #eee; }
+        .price-list td { padding: 16px 10px; vertical-align: top; }
+        .price-list td:first-child { font-weight: 500; font-size: 0.95rem; }
+        .service-title { font-weight: 600; text-transform: uppercase; color: var(--text-color); display: block; font-size: 0.95rem; }
+        .service-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--light-text);
+            text-transform: none;
+            font-weight: 400;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        .price-list td:last-child {
+            text-align: right;
+            white-space: nowrap;
+            min-width: 100px;
+        }
+        .service-price {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+        .service-time {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--light-text);
+            font-weight: 400;
+            margin-top: 3px;
+        }
+        .price-footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-top: 30px;
+            font-style: italic;
+        }
+        .price-list tr:last-child { border-bottom: none; }
+
+        /* --- GALERIA --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: 300px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay i { color: white; font-size: 2rem; }
+
+        /* --- LIGHTBOX (Powiększanie zdjęć) --- */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 90%; border: 3px solid var(--white); }
+        #lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white; font-size: 3rem;
+            cursor: pointer;
+        }
+
+        /* --- KONTAKT --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 20px; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1.1rem; }
+        .contact-item i { width: 40px; color: var(--primary-color); font-size: 1.3rem; }
+        
+        .social-links { margin-top: 30px; }
+        .social-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; height: 50px;
+            background: var(--text-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        .social-btn:hover { background: var(--primary-color); }
+
+        .contact-map { flex: 1; min-width: 300px; height: 400px; }
+        .contact-map iframe { width: 100%; height: 100%; border: 0; border-radius: 5px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSYWNOŚĆ (MOBILE) --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px; left: 0; width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-container { flex-direction: column; }
+            .about-img img { box-shadow: none; }
+            .contact-container { flex-direction: column; }
+            .price-list td { padding: 12px 6px; font-size: 0.85rem; }
+            .service-title { font-size: 0.88rem; }
+            .service-desc { font-size: 0.8rem; }
+            .service-price { font-size: 0.95rem; }
+            .service-time { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Powiększone zdjęcie">
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Jasmin Logo"> 
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#onas" onclick="toggleMenu()">O nas</a>
+                <a href="#oferta" onclick="toggleMenu()">Oferta</a>
+                <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+                <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Jasmin</h1>
+	<h2>Izabela Moik-Ziaja</h2>
+            <p>Podologia & Kosmetyka w Katowicach</p>
+            <a href="tel:+48784077087" class="btn">Umów wizytę</a>
+        </div>
+    </section>
+
+    <section id="onas">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Odkryj piękno w <span class="highlight">Jasmin</span></h2>
+                <p>Nasz salon to miejsce, gdzie pasja do kosmetyki łączy się z profesjonalną wiedzą podologiczną. Stworzyliśmy przestrzeń, w której każdy klient poczuje się wyjątkowo i bezpiecznie.</p>
+                <br>
+                <p>Dbamy nie tylko o estetykę, ale przede wszystkim o zdrowie Twoich dłoni i stóp. Korzystamy z najwyższej jakości produktów i sterylnych narzędzi, zapewniając komfort i skuteczność zabiegów.</p>
+            </div>
+            <div class="about-img">
+                <img src="images/onas.jpg" alt="Wnętrze salonu Jasmin">
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="offer">
+        <div class="offer-container">
+            <div class="section-title">
+                <h2>Cennik Usług</h2>
+                <span></span>
+            </div>
+
+            <div class="price-category">
+                <h3>STYLIZACJA PAZNOKCI</h3>
+                <table class="price-list">
+                    <tr>
+                        <td>
+                            <span class="service-title">Laminacja Paznokci</span>
+                            <span class="service-desc">Zabieg przeznaczony dla cienkich, kruchych, łamliwych i rozdwajających się paznokci. Wzmacnia naturalną płytkę, wspiera jej regenerację i poprawia jej kondycję. Dla najlepszych efektów zalecana jest kuracja 4 zabiegów wykonywanych raz w tygodniu. Po zakończeniu kuracji można wykonać stylizację hybrydową lub żelową.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">120 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Manicure Japoński</span>
+                        </td>
+                        <td>
+                            <span class="service-price">85 zł</span>
+                            <span class="service-time">45 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Manicure Męski</span>
+                        </td>
+                        <td>
+                            <span class="service-price">60 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Manicure Hybrydowy</span>
+                        </td>
+                        <td>
+                            <span class="service-price">120 zł</span>
+                            <span class="service-time">1h 15 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Żel na naturalnej płytce</span>
+                        </td>
+                        <td>
+                            <span class="service-price">140 zł</span>
+                            <span class="service-time">1h 30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Uzupełnienie paznokci na naturalnej płytce</span>
+                        </td>
+                        <td>
+                            <span class="service-price">130 zł</span>
+                            <span class="service-time">1h 40 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Przedłużenie paznokci żelem krótkie</span>
+                            <span class="service-desc">Do około 1 numerka na szablonie. O materiale i technice decyduje stylistka.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">120 zł+</span>
+                            <span class="service-time">3h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Uzupełnienie paznokci żelowych krótkich</span>
+                            <span class="service-desc">Uzupełnienie po 4 tygodniach liczone jest jak nowy set.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">110 zł+</span>
+                            <span class="service-time">2h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Przedłużenie paznokci żelem średnie</span>
+                            <span class="service-desc">Do ok. 3 numerka na szablonie. O materiale i technice decyduje stylistka.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">130 zł+</span>
+                            <span class="service-time">3h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Uzupełnienie paznokci żelowych średnich</span>
+                            <span class="service-desc">Uzupełnienie po 4 tygodniach liczone jest jak nowy set.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">120 zł+</span>
+                            <span class="service-time">2h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Ściągnięcie stylizacji i manicure</span>
+                            <span class="service-desc">Podczas tego zabiegu pozbywamy się całości starej stylizacji (żelu/hybrydy/klasycznego). Naturalne paznokcie oraz skórki klientki opracowane są za pomocą frezarki, sterylnych narzędzi oraz pilnika. Płytka paznokci jest delikatnie polerowana i pokrywana na koniec odżywką.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">80 zł+</span>
+                            <span class="service-time">45 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Ściągnięcie paznokci do ponownego założenia</span>
+                            <span class="service-desc">Polecamy ściągnięcie paznokci przedłużanych co ok. 3 wizytę.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">25 zł</span>
+                            <span class="service-time">20 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Ściągnięcie po innym salonie</span>
+                            <span class="service-desc">Cena zawiera samo ściągnięcie paznokci do ponownego założenia.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">25 zł+</span>
+                            <span class="service-time">25 min</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="price-category">
+                <h3>PODOLOGIA</h3>
+                <table class="price-list">
+                    <tr>
+                        <td>
+                            <span class="service-title">Konsultacja podologiczna</span>
+                            <span class="service-desc">Konsultacja polega na dokładnym obejrzeniu stóp, różnicowaniu zmian i ewentualnej diagnozie. Po konsultacji klient jest świadomy tego z czym się boryka oraz zostaje poinformowany o dalszej terapii podologicznej lub konieczności konsultacji lekarskiej.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">100 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Pedicure Hybrydowy</span>
+                        </td>
+                        <td>
+                            <span class="service-price">220 zł</span>
+                            <span class="service-time">1h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Podstawowy zabieg podologiczny</span>
+                            <span class="service-desc">Zabieg polegający na usunięciu zrogowaceń oraz opracowaniu i obcięciu paznokci. Podczas zabiegu wykonywana jest również diagnostyka problemów i planowana ewentualna dalsza terapia podologiczna.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">200 zł+</span>
+                            <span class="service-time">1h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Podstawowy Zabieg Podologiczny rozszerzony</span>
+                            <span class="service-desc">Podstawowy zabieg podologiczny dla bardziej wymagających stóp. Rozszerzony o usunięcie odcisków, modzeli czy opracowanie pękających pięt.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">250 zł</span>
+                            <span class="service-time">1h</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Obcięcie Paznokci Zdrowych</span>
+                            <span class="service-desc">Zabieg polega na prawidłowym obcięciu i opracowaniu zdrowych paznokci. Podczas wizyty przekazywane są również wskazówki jak prawidłowo radzić sobie z paznokciami, aby w przyszłości nie doszło do wrastania lub innych problemów z aparatem paznokciowym.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">100 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Obcięcie Paznokci Problematycznych</span>
+                        </td>
+                        <td>
+                            <span class="service-price">150 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Oczyszczenie Paznokcia Zmienionego</span>
+                            <span class="service-desc">Zabieg polega na bezbolesnym oczyszczeniu paznokcia zmienionego chorobowo. Zabieg znacząco przyspiesza regenerację chorych paznokci, jest też doskonałym uzupełnieniem leczenia dermatologicznego.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">150 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Usunięcie Odcisku</span>
+                        </td>
+                        <td>
+                            <span class="service-price">100 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Usunięcie świeżego krwiaka podpaznokciowego</span>
+                        </td>
+                        <td>
+                            <span class="service-price">120 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Terapia brodawki wirusowej</span>
+                        </td>
+                        <td>
+                            <span class="service-price">100 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Leczenie grzybicy paznokci</span>
+                        </td>
+                        <td>
+                            <span class="service-price">150 zł+</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Klamra ortonyksyjna na paznokieć</span>
+                            <span class="service-desc">Zabieg polega na aplikacji klamry na wrastające paznokcie. Klamra jest bezbolesna i niewyczuwalna w noszeniu. Jej działanie polega na delikatnym unoszeniu brzegów płytki paznokciowej, co zapobiega powstawaniu stanów zapalnych i bólu w obrębie wałów paznokciowych.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">200 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Tamponada</span>
+                        </td>
+                        <td>
+                            <span class="service-price">30 zł</span>
+                            <span class="service-time">15 min</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="service-title">Kostka Arkady</span>
+                            <span class="service-desc">Metoda leczenia wrastającego paznokcia.</span>
+                        </td>
+                        <td>
+                            <span class="service-price">350 zł</span>
+                            <span class="service-time">30 min</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="price-footer-note">Ceny mogą ulec zmianie. Wygenerowano na podstawie aktualnej oferty.</p>
+
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="section-title">
+            <h2>Nasze Prace</h2>
+            <span></span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox('images/galeria1.jpg')">
+                <img src="images/galeria1.jpg" alt="Realizacja 1">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/galeria2.jpg')">
+                <img src="images/galeria2.jpg" alt="Realizacja 2">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/galeria3.jpg')">
+                <img src="images/galeria3.jpg" alt="Realizacja 3">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/galeria4.jpg')">
+                <img src="images/galeria4.jpg" alt="Realizacja 4">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/galeria5.jpg')">
+                <img src="images/galeria5.jpg" alt="Realizacja 5">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/galeria6.jpg')">
+                <img src="images/galeria6.jpg" alt="Realizacja 6">
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="section-title">
+            <h2>Kontakt</h2>
+            <span></span>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Umów wizytę</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Adres:</strong><br>
+                        Aleja Roździeńskiego 88A<br>
+                        40-203 Katowice
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Telefon:</strong><br>
+                        <a href="tel:+48784077087">+48 784 077 087</a>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/salonKosmetycznyJasminIzabelaMoikZiaja/?locale=pl_PL" target="_blank" class="social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jasmin.katowice" target="_blank" class="social-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-map">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Aleja+Roździeńskiego+88A+Katowice&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Salon Kosmetyczny Jasmin. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        // Menu mobilne
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // Lightbox (Galeria)
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

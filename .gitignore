@@ -1,0 +1,22 @@
+# Backup i instalator WordPress
+autoinstalator/
+*.zip
+*.tar.gz
+
+# Skrypty narzędziowe i dane wrażliwe
+download_all.py
+*.py
+.env*
+
+# Nieużywane multimedia i kopie robocze
+*.mp4
+*.mov
+jasmin_index.html
+images/WhatsApp*
+images/IMG-*
+images/favicon.*
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
